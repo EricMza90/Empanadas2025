@@ -51,11 +51,11 @@ function renderCarrito() {
   const contenedorCarrito = document.getElementById("carrito-container");
   if (!contenedorCarrito) return;
 
-  contenedorCarrito.innerHTML = `
-  <h2>🛒 TU PEDIDO</h2>
-  <div style="margin-bottom: 20px;">
-    <a href="index.html" style="text-decoration: none; color: #007BFF; font-size: 1rem; display: inline-flex; align-items: center;">
-      ⬅️ Volver al menú principal
+ contenedorCarrito.innerHTML = `
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <h2>🛒 TU PEDIDO</h2>
+    <a href="index.html" style="text-decoration: none; color: #007BFF; font-size: 1rem; display: flex; align-items: center; gap: 5px;">
+      ⬅️ Volver al menú
     </a>
   </div>
 `;
