@@ -31,7 +31,7 @@ const productos = [
   },
   {
     id: 6,
-    nombre: "Fugazza con Queso Azul",
+    nombre: "Fugazza con Queso Azúl",
     precio: 11500,
     imagen: "./imagenes/fugazza-roquefort.png"
   },
