@@ -1,0 +1,464 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+  font-family: 'Fredoka', sans-serif;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  align-items: center;  /* Centra verticalmente */
+  justify-content: flex-start; /* Alinea a la izquierda horizontalmente */
+  gap: 10px; /* Espacio entre logo y título */
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+#logo {
+  max-width: 100px;
+  height: auto;
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+footer {
+  display: flex;
+  align-items: center;       /* Centra verticalmente */
+  justify-content: center;   /* Centra horizontalmente */
+  gap: 10px;                 /* Espacio entre elementos */
+  padding: 0 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  height: 120px;              /* Alto fijo del footer */
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Contenedor general de productos */
+.productos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Tarjeta individual de producto */
+.producto {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: rgba(200, 200, 200, 0.3); /* gris transparente */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+  height: 100%;
+  min-height: 450px;
+  transition: transform 0.2s;
+}
+
+.producto:hover {
+  transform: scale(1.03);
+}
+
+.producto img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.producto h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.producto p {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+/* Opciones de tipo y cantidad */
+.opciones {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.opciones label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.95em;
+  color: #333;
+}
+
+.opciones select {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Botón al fondo */
+button.agregar {
+  margin-top: auto;
+  background-color: darkorange;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95em;
+  transition: background-color 0.2s ease;
+  font-family: fredoka;
+}
+
+button.agregar:hover {
+  background-color: #0056b3;
+}
+
+/* Ícono carrito fijo */
+#icono-carrito {
+  font-size: 40px;
+  text-decoration: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+}
+
+#icono-carrito:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+/* Carrito en pedido.html */
+#carrito-container {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#carrito-container h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.lista-carrito {
+  list-style: none;
+  padding: 0;
+}
+
+.item-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #f3f3f3;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.item-carrito button {
+  margin-left: 5px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.total {
+  text-align: right;
+  font-size: 1.1em;
+  margin-top: 10px;
+}
+
+/* Botón volver en pedido.html */
+.volver {
+  display: inline-block;
+  margin: 10px 0 20px 20px;
+  font-size: 1em;
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.volver:hover {
+  text-decoration: underline;
+}
+/* Aviso flotante producto agregado */
+.aviso-carrito {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+  opacity: 0;
+  animation: fadeInOut 2s forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+}
+
+/* Estilo del carrito */
+#carrito-container {
+  max-width: 780px;
+  margin: 40px auto;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.lista-carrito {
+  list-style: none;
+  padding: 0;
+}
+
+.item-carrito {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.item-carrito button {
+  margin-left: 6px;
+  padding: 4px 8px;
+  font-size: 14px;
+  border: none;
+  background-color: #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.item-carrito button:hover {
+  background-color: #bbb;
+}
+
+.total {
+  text-align: right;
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.item-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.info-producto {
+  flex: 1 1 auto;
+  /* Esto evita que el texto se mueva */
+}
+
+.botones-carrito {
+  display: flex;
+  gap: 6px; /* separación mínima entre botones */
+  flex-shrink: 0; /* evita que se reduzcan o muevan */
+}
+
+.botones-carrito button {
+  padding: 6px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background-color: #eee;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.botones-carrito button:hover {
+  background-color: #ccc;
+}
+/* =========================
+   MEDIA QUERIES RESPONSIVE
+   ========================= */
+
+/* Tablets en orientación vertical (pantallas menores a 1024px) */
+@media (max-width: 1024px) {
+  .producto {
+    min-height: 400px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #logo {
+    max-width: 80px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-top: 10px;
+  }
+
+  .producto h3 {
+    font-size: 1.1em;
+  }
+
+  .producto p {
+    font-size: 0.95em;
+  }
+
+  .botones-carrito button {
+    font-size: 0.9rem;
+    padding: 5px 8px;
+  }
+
+  .total {
+    font-size: 1rem;
+  }
+}
+
+/* Smartphones (pantallas menores a 768px) */
+@media (max-width: 768px) {
+  .productos-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .producto {
+    min-height: 380px;
+    padding: 12px;
+  }
+
+  .producto img {
+    max-height: 150px;
+  }
+
+  .opciones label {
+    font-size: 0.9em;
+  }
+
+  .opciones select {
+    font-size: 0.9em;
+  }
+
+  button.agregar {
+    font-size: 0.9em;
+    padding: 8px 12px;
+  }
+
+  .item-carrito {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .botones-carrito {
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .botones-carrito button {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+  }
+
+  .total {
+    text-align: left;
+  }
+
+  .aviso-carrito {
+    font-size: 14px;
+    padding: 10px 20px;
+    bottom: 20px;
+  }
+
+  .volver {
+    margin: 10px auto 20px;
+    display: block;
+    text-align: center;
+  }
+
+  #carrito-container {
+    padding: 15px;
+  }
+
+  .item-carrito button {
+    font-size: 13px;
+    padding: 4px 6px;
+  }
+
+  #carrito-container button {
+    font-size: 1rem;
+    padding: 10px 15px;
+    margin: 10px auto;
+    display: block;
+  }
+}
+
+/* Extra pequeño: pantallas menores a 480px */
+@media (max-width: 480px) {
+  .producto {
+    min-height: 360px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .producto h3 {
+    font-size: 1em;
+  }
+
+  button.agregar {
+    padding: 8px;
+  }
+
+  .item-carrito {
+    padding: 10px 0;
+  }
+
+  .botones-carrito {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .botones-carrito button {
+    padding: 4px 8px;
+  }
+}
+
