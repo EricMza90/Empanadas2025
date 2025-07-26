@@ -51,7 +51,14 @@ function renderCarrito() {
   const contenedorCarrito = document.getElementById("carrito-container");
   if (!contenedorCarrito) return;
 
-  contenedorCarrito.innerHTML = "<h2>🛒 TU PEDIDO</h2>";
+  contenedorCarrito.innerHTML = `
+  <h2>🛒 TU PEDIDO</h2>
+  <div style="margin-bottom: 20px;">
+    <a href="index.html" style="text-decoration: none; color: #007BFF; font-size: 1rem; display: inline-flex; align-items: center;">
+      ⬅️ Volver al menú principal
+    </a>
+  </div>
+`;
 
   if (carrito.length === 0) {
     contenedorCarrito.innerHTML += `<p style="text-align:center; font-size:1.2rem; color:#555; margin-top:20px;">CARRITO VACÍO</p>`;
