@@ -113,15 +113,18 @@ function renderCarrito() {
   `;
   contenedorCarrito.appendChild(pagoDiv);
 
-// Contenedor centrado para el botón
+/// Contenedor centrado para el botón
 const contenedorBoton = document.createElement("div");
-contenedorBoton.style.textAlign = "center";
+contenedorBoton.style.display = "flex";
+contenedorBoton.style.justifyContent = "center";
 contenedorBoton.style.marginTop = "20px";
 
 // Botón enviar pedido
 const botonEnviar = document.createElement("button");
-botonEnviar.textContent = "Hacer Pedido";
-botonEnviar.style.padding = "10px 25px";
+botonEnviar.style.display = "flex";
+botonEnviar.style.alignItems = "center";
+botonEnviar.style.justifyContent = "space-between";
+botonEnviar.style.padding = "10px 20px";
 botonEnviar.style.fontSize = "1.1rem";
 botonEnviar.style.backgroundColor = "#4caf50";
 botonEnviar.style.color = "white";
@@ -129,10 +132,29 @@ botonEnviar.style.border = "none";
 botonEnviar.style.borderRadius = "8px";
 botonEnviar.style.cursor = "pointer";
 botonEnviar.style.fontWeight = "700";
+botonEnviar.style.minWidth = "220px"; // ancho mínimo para separación entre texto y logo
 
-// Agregar botón al contenedor centrado
+// Texto centrado (dentro del botón)
+const textoBoton = document.createElement("span");
+textoBoton.textContent = "Hacer Pedido";
+textoBoton.style.flex = "1";
+textoBoton.style.textAlign = "center";
+
+// Logo de WhatsApp alineado a la derecha
+const logoWhatsapp = document.createElement("img");
+logoWhatsapp.src = "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"; // o tu imagen local
+logoWhatsapp.alt = "WhatsApp";
+logoWhatsapp.style.width = "20px";
+logoWhatsapp.style.height = "20px";
+
+// Agregar elementos al botón
+botonEnviar.appendChild(textoBoton);
+botonEnviar.appendChild(logoWhatsapp);
+
+// Agregar botón al contenedor
 contenedorBoton.appendChild(botonEnviar);
 contenedorCarrito.appendChild(contenedorBoton);
+
 
  botonEnviar.addEventListener("click", () => {
   const formaPago = document.getElementById("forma-pago").value;
