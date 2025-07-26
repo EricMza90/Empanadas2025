@@ -140,7 +140,7 @@ contenedorCarrito.appendChild(contenedorBoton);
     return;
   }
 
-  let mensaje = "Hola! Quiero hacer el siguiente pedido:%0A"//;
+  let mensaje = "Hola! Quiero hacer el siguiente pedido:%0A%0A"//;
 
   carrito.forEach((item) => {
     mensaje += `- ${item.nombre} (${item.tipo}) - ${item.cantidad} empanadas%0A`;
@@ -151,7 +151,7 @@ contenedorCarrito.appendChild(contenedorBoton);
     return acc + item.precioUnitario * unidades;
   }, 0);
 
-  mensaje += `%0ATotal: $${totalPedido.toFixed(0)}%0A`//;
+  mensaje += `%0ATotal: $${totalPedido.toFixed(0)}%0A%0A`//;
   mensaje += `Forma de pago: ${formaPago}`;
 
   // Reemplazá el número con el tuyo
