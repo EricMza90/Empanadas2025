@@ -63,8 +63,8 @@ productos.forEach((producto) => {
       <label>
         Tipo:
         <select class="tipo">
-          <option value="crudas">Crudas</option>
           <option value="cocidas">Cocidas</option>
+          <option value="crudas">Crudas</option>
         </select>
       </label>
 
